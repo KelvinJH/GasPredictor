@@ -1,0 +1,16 @@
+{
+  "name": "gaspredictor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "home.js",
+  "scripts": {
+    "start": "nodemon home.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "nodemon": "^1.19.4"
+  }
+}
