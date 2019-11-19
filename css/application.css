@@ -1,0 +1,14 @@
+.color-bg {
+    background: #E4F2F7;
+}
+.jumbotron {
+    background-image: url('images/car.jpg');
+    background-size: cover;
+}
+#btn-click {
+    display: block;
+    width: 300px;
+}
+.footer {
+    background: #D6D4FF
+}
