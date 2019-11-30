@@ -1,14 +1,92 @@
-.color-bg {
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.color-bg{
     background: #E4F2F7;
 }
-.jumbotron {
+
+.jumbotron{
     background-image: url('images/car.jpg');
     background-size: cover;
 }
-#btn-click {
-    display: block;
-    width: 300px;
+
+#btn-click{
+	display: block;
+	width: 300px;
 }
-.footer {
-    background: #D6D4FF
+
+.footer{
+	background: #D6D4FF
+}
+
+
+.slider{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(to bottom, rgb(50,161,216), grey);
+	z-index: -1;
+}
+
+
+nav{
+	display: grid;
+	grid-template-columns: 15% 1fr 1fr 15%;
+	min-height: 10vh;
+	align-items: center;
+}
+
+.head_nav{
+	grid-column: 1;
+	font-size: 30px;
+	background: -webkit-linear-gradient(rgb(251,236,139), rgb(242,185,80));
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	cursor: pointer;
+}
+
+
+.about{
+	grid-column: 2;
+}
+
+
+
+
+section{
+	display: flex;
+	height: 80vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.image_container{
+	height: 85%;
+	width: 100%;
+	justify-content: center;
+}
+
+.image_container img{
+	width: 100%;
+	height: 100%;
+	object-fit: scale-down;
+}
+
+
+.gen_prediction{
+	cursor: pointer;
+	position: absolute;
+	top: 70%;
+	left: 2%;
+	font-size: 56px;
+	transform: translate(-20%, -70%);
+	background: -webkit-linear-gradient(rgb(251,236,139), rgb(242,185,80));
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	z-index: 3;
 }

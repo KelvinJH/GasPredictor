@@ -4,7 +4,7 @@
   "description": "",
   "main": "home.js",
   "scripts": {
-    "start": "nodemon home.js"
+    "start": "nodemon routes.js"
   },
   "author": "",
   "license": "ISC",
