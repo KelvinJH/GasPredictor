@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let path = require('path');
 let app = express();
+let port = process.env.PORT || 3000;
 
 
 // GET: / and /home
@@ -18,6 +19,6 @@ app.use('/', express.static(__dirname+'/css'));
 app.use('/', express.static(__dirname+'/javascript'));
 app.use('/', express.static(__dirname+'/images'));
 
-app.listen(process.env.port || 3000);
+app.listen(port);
 
-console.log('Server is listening @ port 3000');
+console.log('Server is listening @ port ' + port);
