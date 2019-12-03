@@ -32,7 +32,9 @@ window.addEventListener("load", function(){
     });
 
 
-
+    $.getJSON('https://gascr.herokuapp.com/', function() {
+        console.log('Remote awake');
+    });
 });
 function insertChart(){
 	let img = document.querySelector(".image_container img");
