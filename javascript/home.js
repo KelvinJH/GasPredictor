@@ -25,8 +25,11 @@ window.addEventListener("load", function(){
 	});
 
 	headline.addEventListener("click", insertChart);
-		
-	
+
+    headline.addEventListener("click", function() {
+        insertData();
+        insertChart();
+    });
 
 
 
@@ -36,7 +39,24 @@ function insertChart(){
 	img.remove();
 	$('.image_container').after("<iframe id='eia_widget' style='width:100%;height:80%' src='//www.eia.gov/opendata/embed/iframe.php?series_id=PET.EER_EPMRR_PF4_Y05LA_DPG.D' load='iframe_load'></iframe>");
 	chartLoaded = !chartLoaded;
-	checkChart()
+	  checkChart();
+}
+
+function insertData() {
+    $.getJSON('https://gascr.herokuapp.com/trends', function(data) {
+        let trend = data.trend + data.cycle;
+        let price = Math.round(Math.abs(Math.exp(trend) - 1) * 100);
+        if (price < 5) {
+            headline.innerHTML = 'Maybe? Gas prices are not expected to change much';
+        } else {
+            if (trend > 0) {
+                headline.innerHTML = 'Buy today!';
+            } else {
+                headline.innerHTML = 'Wait!';
+            }
+            headline.innerHTML = headline.innerHTML + " Price could change by " + price + " percent.";
+        }
+    });
 }
 
 function checkChart(){

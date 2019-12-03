@@ -87,6 +87,6 @@ section{
 	transform: translate(-20%, -70%);
 	background: -webkit-linear-gradient(rgb(251,236,139), rgb(242,185,80));
   	-webkit-background-clip: text;
-  	-webkit-text-fill-color: transparent;
+  	/* -webkit-text-fill-color: transparent; */
   	z-index: 3;
 }
