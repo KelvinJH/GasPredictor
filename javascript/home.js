@@ -37,26 +37,31 @@ window.addEventListener("load", function(){
     });
 });
 function insertChart(){
-	let img = document.querySelector(".image_container img");
-	img.remove();
+	document.querySelector(".image_container img").remove();
 	$('.image_container').after("<iframe id='eia_widget' style='width:100%;height:80%' src='//www.eia.gov/opendata/embed/iframe.php?series_id=PET.EER_EPMRR_PF4_Y05LA_DPG.D' load='iframe_load'></iframe>");
-	chartLoaded = !chartLoaded;
-	  checkChart();
+
+	checkChart();
 }
 
 function insertData() {
     $.getJSON('https://gascr.herokuapp.com/trends', function(data) {
         let trend = data.trend + data.cycle;
         let price = Math.round(Math.abs(Math.exp(trend) - 1) * 100);
+        var result_text = document.createElement("div");
         if (price < 5) {
-            headline.innerHTML = 'Maybe? Gas prices are not expected to change much';
+            result_text.innerHTML = 'Maybe? Gas prices are not expected to change much';
         } else {
             if (trend > 0) {
-                headline.innerHTML = 'Buy today!';
+                result_text.innerHTML = 'Buy today!';
             } else {
-                headline.innerHTML = 'Wait!';
+                result_text.innerHTML = 'Wait!';
             }
-            headline.innerHTML = headline.innerHTML + " Price could change by " + price + " percent.";
+            result_text.innerHTML = result_text.innerHTML + "Price could change by " + price + " percent.";
+        }
+        if(!chartLoaded){
+            result_text.setAttribute('class', 'result');
+            headline.appendChild(result_text);
+            chartLoaded = true;
         }
     });
 }
